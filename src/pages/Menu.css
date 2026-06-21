@@ -1,0 +1,58 @@
+/* ============================================================
+   MENU PAGE STYLES
+   ============================================================ */
+
+/* ── Page Hero ── */
+.page-hero { min-height: 50vh; display: flex; align-items: center; justify-content: center; position: relative; text-align: center; overflow: hidden; }
+.page-hero__bg { position: absolute; inset: 0; }
+.page-hero__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: brightness(0.4); }
+[data-theme="light"] .page-hero__bg img { opacity: 0.4; filter: brightness(0.7); }
+.page-hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.85) 100%); }
+[data-theme="light"] .page-hero__overlay { background: linear-gradient(180deg, rgba(248,246,242,0.4) 0%, rgba(248,246,242,0.9) 100%); }
+.page-hero__content { position: relative; z-index: 2; padding: calc(var(--nav-height) + var(--space-xl)) var(--space-lg) var(--space-xl); }
+
+/* ── Tabs ── */
+.tabs { display: flex; justify-content: center; gap: var(--space-xs); margin-bottom: var(--space-xl); flex-wrap: wrap; }
+.tab { padding: 0.75rem 1.75rem; font-size: var(--fs-small); font-weight: 500; text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--color-text-secondary); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); cursor: pointer; transition: all var(--duration-normal) var(--ease-smooth); background: transparent; }
+.tab:hover { color: var(--color-gold); border-color: rgba(201,169,110,0.3); }
+.tab.active { color: #0a0a0a; background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark)); border-color: var(--color-gold); box-shadow: var(--shadow-gold); }
+
+/* ── Menu Grid ── */
+.menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+.menu-card { background: var(--color-bg-card); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius-md); padding: var(--space-md) var(--space-lg); transition: all var(--duration-normal) var(--ease-smooth); display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-md); cursor: pointer; }
+.menu-card:hover { background: rgba(42,42,42,0.6); border-color: var(--glass-border); box-shadow: var(--shadow-gold); transform: translateY(-2px); }
+[data-theme="light"] .menu-card:hover { background: rgba(255,255,255,0.8); }
+.menu-card__info { flex: 1; }
+.menu-card__name { font-family: var(--font-serif); font-size: var(--fs-h4); color: var(--color-white); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+.menu-card__special-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-gold); flex-shrink: 0; }
+.menu-card__desc { font-size: var(--fs-small); color: var(--color-text-secondary); line-height: var(--lh-relaxed); margin-bottom: 0.5rem; }
+.menu-card__category { font-size: var(--fs-caption); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: var(--ls-wide); }
+.menu-card__price { font-family: var(--font-serif); font-size: var(--fs-h4); color: var(--color-gold); white-space: nowrap; font-weight: 500; }
+
+/* ── Special Dishes ── */
+.special-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-lg); }
+.special-card { background: var(--glass-bg); backdrop-filter: blur(var(--glass-blur)); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); overflow: hidden; cursor: pointer; transition: all var(--duration-normal) var(--ease-smooth); }
+.special-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-gold-lg); border-color: rgba(201,169,110,0.4); }
+.special-card__image { aspect-ratio: 16 / 10; overflow: hidden; }
+.special-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-slow) var(--ease-smooth); }
+.special-card:hover .special-card__image img { transform: scale(1.05); }
+.special-card__content { padding: var(--space-lg); }
+.special-card__content h3 { font-family: var(--font-serif); font-size: var(--fs-h4); margin-bottom: 0.5rem; color: var(--color-white); }
+.special-card__content p { font-size: var(--fs-small); color: var(--color-text-secondary); line-height: var(--lh-relaxed); margin-bottom: 0.75rem; }
+.special-card__badge { display: inline-block; padding: 0.35rem 1rem; background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark)); color: #0a0a0a; font-size: var(--fs-caption); font-weight: 600; text-transform: uppercase; letter-spacing: var(--ls-wide); border-radius: var(--radius-sm); margin-bottom: var(--space-sm); }
+.special-card__price { font-family: var(--font-serif); color: var(--color-gold); font-size: var(--fs-h4); }
+
+/* ── Dish Modal ── */
+.dish-modal { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.9); }
+.dish-modal__close { position: absolute; top: var(--space-lg); right: var(--space-lg); width: 48px; height: 48px; border-radius: var(--radius-full); background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1.25rem; cursor: pointer; transition: all var(--duration-fast) var(--ease-smooth); z-index: 1; }
+.dish-modal__close:hover { border-color: var(--color-gold); color: var(--color-gold); }
+.dish-modal__content { background: var(--color-bg-secondary); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); max-width: 700px; width: 90%; max-height: 90vh; overflow-y: auto; animation: fadeInUp 0.4s var(--ease-out); }
+.dish-modal__image { aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+.dish-modal__image img { width: 100%; height: 100%; object-fit: cover; }
+.dish-modal__body { padding: var(--space-xl); }
+
+@media (max-width: 768px) {
+  .menu-grid { grid-template-columns: 1fr; }
+  .tabs { gap: 0.25rem; }
+  .tab { padding: 0.5rem 1rem; font-size: var(--fs-caption); }
+}
